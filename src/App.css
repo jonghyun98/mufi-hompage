@@ -11,45 +11,61 @@ body {
   color: #1a1a1a;
   background: #ffffff;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .App {
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
+  width: 100%;
 }
 
-/* Typography */
+/* Typography - Responsive */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.8rem; }
-h4 { font-size: 1.4rem; }
+h1 { 
+  font-size: clamp(2.5rem, 5vw, 4rem); 
+}
+h2 { 
+  font-size: clamp(2rem, 4vw, 3rem); 
+}
+h3 { 
+  font-size: clamp(1.5rem, 3vw, 2rem); 
+}
+h4 { 
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem); 
+}
 
 p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: #666;
   margin-bottom: 1rem;
+  line-height: 1.7;
 }
 
 /* Common Section Styles */
 section {
-  padding: 100px 0;
+  padding: clamp(60px, 8vw, 120px) 0;
   position: relative;
+  width: 100%;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: clamp(40px, 6vw, 80px);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-header h2 {
@@ -61,12 +77,12 @@ section {
 }
 
 .section-header p {
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Hero Section */
+/* Hero Section - Improved Responsive */
 .hero {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -77,6 +93,7 @@ section {
   position: relative;
   overflow: hidden;
   color: white;
+  padding: 0;
 }
 
 .hero-background {
@@ -100,17 +117,18 @@ section {
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   z-index: 10;
   position: relative;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
+  width: 100%;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 2rem;
@@ -129,7 +147,7 @@ section {
 }
 
 .hero-subtitle {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   opacity: 0.9;
   margin-bottom: 3rem;
   line-height: 1.6;
@@ -137,24 +155,25 @@ section {
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
   margin-bottom: 3rem;
 }
 
 .stat-item {
   text-align: center;
+  padding: 1rem 0.5rem;
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   color: #FFD700;
   display: block;
 }
 
 .stat-label {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 1rem);
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -170,14 +189,15 @@ section {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
+  padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
   border: none;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -204,6 +224,7 @@ section {
 
 .hero-visual {
   position: relative;
+  width: 100%;
 }
 
 .floating-card {
@@ -211,8 +232,11 @@ section {
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .card-header {
@@ -276,24 +300,31 @@ section {
   opacity: 0.7;
 }
 
-/* Market Analysis Section */
+/* Market Analysis Section - Enhanced */
 .market-analysis {
   background: #f8fafc;
 }
 
 .market-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   margin-bottom: 4rem;
 }
 
 .market-card {
   background: white;
   border-radius: 20px;
-  padding: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.market-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .market-card h3 {
@@ -302,14 +333,19 @@ section {
   gap: 1rem;
   margin-bottom: 2rem;
   color: #1a1a1a;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
 }
 
 .market-card .icon {
   color: #8B5CF6;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .chart-container {
   margin: 2rem 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .market-breakdown {
@@ -322,62 +358,77 @@ section {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: clamp(0.8rem, 2vw, 1rem);
   background: #f8fafc;
   border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.market-item:hover {
+  background: #e2e8f0;
 }
 
 .market-indicator {
   width: 16px;
   height: 16px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .market-info {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .market-name {
   font-weight: 600;
   color: #1a1a1a;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .market-value {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
   font-weight: 700;
   color: #8B5CF6;
 }
 
 .market-desc {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   color: #666;
+  line-height: 1.4;
 }
 
 .growth-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: clamp(0.8rem, 2vw, 1rem);
   margin-top: 2rem;
 }
 
 .stat {
   text-align: center;
-  padding: 1rem;
+  padding: clamp(0.8rem, 2vw, 1rem);
   background: #f8fafc;
   border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-2px);
 }
 
 .stat-label {
   display: block;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   color: #666;
   margin-bottom: 0.5rem;
 }
 
 .stat-value {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: 700;
   color: #06B6D4;
 }
@@ -395,15 +446,18 @@ section {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .advantage-category {
   font-weight: 600;
   color: #1a1a1a;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .advantage-label {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   color: #8B5CF6;
   font-weight: 500;
 }
@@ -420,6 +474,7 @@ section {
   background: #e2e8f0;
   border-radius: 4px;
   overflow: hidden;
+  width: 100%;
 }
 
 .progress-fill {
@@ -439,7 +494,7 @@ section {
 .progress-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
   color: #666;
 }
 
@@ -449,20 +504,26 @@ section {
 
 .insights-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .insight-item {
   text-align: center;
-  padding: 1.5rem;
+  padding: clamp(1.2rem, 2.5vw, 1.8rem);
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   border-radius: 16px;
   border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insight-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .insight-number {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
   color: #8B5CF6;
   margin-bottom: 0.5rem;
@@ -472,11 +533,13 @@ section {
   font-weight: 600;
   color: #1a1a1a;
   margin-bottom: 0.3rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .insight-desc {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   color: #666;
+  line-height: 1.4;
 }
 
 /* Growth Roadmap Section */
@@ -742,24 +805,30 @@ section {
   color: #666;
 }
 
-/* Unit Economics Section */
+/* Unit Economics Section - Enhanced */
 .unit-economics {
-  background: #f8fafc;
+  background: white;
 }
 
 .economics-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .economics-card {
   background: white;
   border-radius: 20px;
-  padding: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.economics-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .economics-card h3 {
@@ -768,23 +837,31 @@ section {
   gap: 1rem;
   margin-bottom: 2rem;
   color: #1a1a1a;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
 }
 
 .economics-card .icon {
   color: #8B5CF6;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .event-summary {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: clamp(0.8rem, 2vw, 1rem);
   margin-bottom: 2rem;
 }
 
 .summary-item {
-  padding: 1rem;
-  border-radius: 12px;
   text-align: center;
+  padding: clamp(0.8rem, 2vw, 1rem);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.summary-item:hover {
+  transform: translateY(-2px);
 }
 
 .summary-item.revenue {
@@ -809,51 +886,65 @@ section {
 
 .summary-item .label {
   display: block;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   opacity: 0.9;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .summary-item .value {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
   font-weight: 700;
+  display: block;
 }
 
 .charts-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin-top: 2rem;
+}
+
+.chart-half {
+  width: 100%;
+  min-height: 220px;
 }
 
 .chart-half h4 {
   text-align: center;
   margin-bottom: 1rem;
   color: #1a1a1a;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .saas-insights {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: clamp(0.8rem, 2vw, 1rem);
   margin-top: 2rem;
 }
 
 .insight {
   text-align: center;
-  padding: 1rem;
+  padding: clamp(0.8rem, 2vw, 1rem);
   background: #f8fafc;
   border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.insight:hover {
+  transform: translateY(-2px);
 }
 
 .insight-label {
   display: block;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   color: #666;
   margin-bottom: 0.5rem;
 }
 
 .insight-value {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
   font-weight: 700;
   color: #8B5CF6;
 }
@@ -867,36 +958,47 @@ section {
 }
 
 .ltv-cac-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .ltv-cac-item {
-  padding: 1.5rem;
   background: #f8fafc;
   border-radius: 16px;
+  padding: clamp(1.2rem, 2.5vw, 1.8rem);
   border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ltv-cac-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .segment-name {
   font-weight: 600;
   color: #1a1a1a;
   margin-bottom: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .ltv-cac-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: clamp(0.5rem, 1.5vw, 0.8rem);
   margin-bottom: 1rem;
 }
 
+.metric {
+  text-align: center;
+}
+
 .metric .metric-label {
-  font-size: 0.8rem;
+  display: block;
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
   color: #666;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
 }
 
 .metric-value.ltv { color: #10B981; }
@@ -908,7 +1010,7 @@ section {
   background: #e2e8f0;
   border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .ratio-fill {
@@ -924,26 +1026,30 @@ section {
 }
 
 .insight-highlight {
-  padding: 2rem;
   background: linear-gradient(135deg, #8B5CF6, #06B6D4);
-  border-radius: 16px;
   color: white;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border-radius: 16px;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .highlight-label {
   display: block;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   opacity: 0.9;
   margin-bottom: 0.5rem;
 }
 
 .highlight-value {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .highlight-desc {
-  opacity: 0.9;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  opacity: 0.8;
 }
 
 .key-takeaways {
@@ -1565,41 +1671,61 @@ section {
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Enhanced Responsive Design */
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1600px;
+    padding: 0 32px;
+  }
+  
+  section {
+    padding: 140px 0;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+  
+  .hero-content {
+    gap: 3rem;
+  }
+  
+  .market-grid,
+  .competition-grid,
+  .team-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 16px;
+  }
+  
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
+    gap: 2rem;
   }
   
   .market-grid,
   .economics-grid,
+  .competition-grid,
   .team-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .vision-steps {
-    flex-direction: column;
     gap: 2rem;
   }
   
-  .step-arrow {
-    display: none;
-  }
-  
   .horizon-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .metrics-grid,
-  .takeaways-grid,
-  .summary-cards,
-  .goals-grid {
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    gap: 1.5rem;
   }
   
   .insights-grid {
@@ -1609,64 +1735,218 @@ section {
   .advantages-grid {
     grid-template-columns: 1fr;
   }
-  
-  .contact-section {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-  
-  .table-header,
-  .table-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-  
-  .container {
-    padding: 0 15px;
-  }
-  
-  section {
-    padding: 60px 0;
-  }
 }
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
+/* Tablet Portrait */
+@media (max-width: 768px) {
+  section {
+    padding: clamp(40px, 6vw, 80px) 0;
   }
   
-  .metrics-grid,
-  .takeaways-grid,
-  .summary-cards,
-  .goals-grid,
-  .insights-grid {
-    grid-template-columns: 1fr;
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
   }
   
   .hero-stats {
     grid-template-columns: 1fr;
-  }
-  
-  .charts-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .ltv-cac-metrics {
-    grid-template-columns: 1fr;
-  }
-  
-  .tools-list {
-    justify-content: center;
+    gap: 1rem;
   }
   
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .vision-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .step-arrow {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+  
+  .metrics-grid,
+  .growth-stats,
+  .takeaways-grid,
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ltv-cac-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .charts-row {
+    flex-direction: column;
+  }
+  
+  .chart-half {
+    width: 100%;
+  }
+  
+  .table-header,
+  .table-row {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .contact-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .floating-card {
+    padding: 1.5rem;
+  }
+  
+  .horizon-card {
+    padding: 1.5rem;
+  }
+  
+  .economics-card {
+    padding: 1.5rem;
+  }
+  
+  .competition-card {
+    padding: 1.5rem;
+  }
+  
+  .team-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 8px;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .section-header h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .metrics-grid,
+  .growth-stats,
+  .takeaways-grid,
+  .insights-grid,
+  .summary-cards,
+  .goals-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .charts-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .ltv-cac-metrics {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .tools-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
   }
   
   .manifesto-cta {
     flex-direction: column;
-    align-items: center;
+    gap: 1rem;
+  }
+  
+  .floating-card,
+  .horizon-card,
+  .economics-card,
+  .competition-card,
+  .team-card {
+    padding: 1rem;
+  }
+  
+  .table-header,
+  .table-row {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.3rem;
+  }
+}
+
+/* Ultra Small Screens */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 4px;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-content {
+    gap: 1rem;
+  }
+  
+  .floating-card,
+  .horizon-card,
+  .economics-card,
+  .competition-card,
+  .team-card {
+    padding: 0.8rem;
+    margin: 0 4px;
+  }
+  
+  section {
+    padding: 30px 0;
   }
 }
