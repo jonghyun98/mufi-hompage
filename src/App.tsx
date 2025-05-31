@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from './components/Hero'
 import MarketAnalysis from './components/MarketAnalysis'
 import GrowthRoadmap from './components/GrowthRoadmap'

@@ -106,7 +106,7 @@ const UnitEconomics = () => {
                       cy="50%"
                       outerRadius={60}
                       dataKey="value"
-                      label={({ name, value }) => `₩${(Number(value)/1000).toFixed(0)}K`}
+                      label={({ name: _, value }) => `₩${(Number(value)/1000).toFixed(0)}K`}
                     >
                       {costData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.color} />
@@ -127,7 +127,7 @@ const UnitEconomics = () => {
                       cy="50%"
                       outerRadius={60}
                       dataKey="value"
-                      label={({ name, value }) => `₩${(Number(value)/1000).toFixed(0)}K`}
+                      label={({ name: _, value }) => `₩${(Number(value)/1000).toFixed(0)}K`}
                     >
                       {revenueData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.color} />
