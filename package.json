@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://[YOUR_GITHUB_USERNAME].github.io/mufi-homepage",
+  "homepage": "https://jonghyun98.github.io/mufi-hompage",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
