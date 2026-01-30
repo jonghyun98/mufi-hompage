@@ -173,7 +173,7 @@ const Competition = () => {
               </div>
               
               {competitors.map((competitor, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className={`table-row ${competitor.name === 'MUFI' ? 'mufi-row' : ''}`}
                   initial={{ opacity: 0, x: -30 }}
@@ -184,10 +184,10 @@ const Competition = () => {
                     <span className="competitor-logo">{competitor.logo}</span>
                     <span className="competitor-name">{competitor.name}</span>
                   </div>
-                  <div className="col-region">{competitor.region}</div>
-                  <div className="col-model">{competitor.bizModel}</div>
-                  <div className="col-strength">{competitor.strength}</div>
-                  <div className="col-gap">{competitor.gap}</div>
+                  <div className="col-region" data-label="Region">{competitor.region}</div>
+                  <div className="col-model" data-label="Business Model">{competitor.bizModel}</div>
+                  <div className="col-strength" data-label="Strength">{competitor.strength}</div>
+                  <div className="col-gap" data-label="Gap vs MUFI">{competitor.gap}</div>
                 </motion.div>
               ))}
             </div>
