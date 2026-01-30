@@ -9,27 +9,32 @@ import './App.css'
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <a href="#main-content" className="skip-link">
+        메인 콘텐츠로 건너뛰기
+      </a>
       <MobileNav />
-      <div id="hero">
-        <Hero />
-      </div>
-      <div id="market-analysis">
-        <MarketAnalysis />
-      </div>
-      <div id="growth-roadmap">
-        <GrowthRoadmap />
-      </div>
-      <div id="unit-economics">
-        <UnitEconomics />
-      </div>
-      <div id="competition">
-        <Competition />
-      </div>
-      <div id="team">
-        <Team />
-      </div>
-    </div>
+      <main id="main-content" className="App">
+        <section id="hero" aria-label="MUFI 소개">
+          <Hero />
+        </section>
+        <section id="market-analysis" aria-label="시장 분석">
+          <MarketAnalysis />
+        </section>
+        <section id="growth-roadmap" aria-label="성장 로드맵">
+          <GrowthRoadmap />
+        </section>
+        <section id="unit-economics" aria-label="단위 경제학">
+          <UnitEconomics />
+        </section>
+        <section id="competition" aria-label="경쟁 분석">
+          <Competition />
+        </section>
+        <section id="team" aria-label="팀 및 투자">
+          <Team />
+        </section>
+      </main>
+    </>
   )
 }
 

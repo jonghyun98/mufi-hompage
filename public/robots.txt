@@ -1,0 +1,9 @@
+# MUFI Homepage Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jonghyun98.github.io/mufi-hompage/sitemap.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 1
